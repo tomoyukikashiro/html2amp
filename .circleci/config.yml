@@ -1,0 +1,55 @@
+aliases:
+  - &restore-cache
+    keys:
+      - v2-dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      # Fallback in case checksum fails
+      - v2-dependencies-{{ .Branch }}-
+
+  - &save-cache
+    paths:
+      - node_modules
+      - website/node_modules
+    key: v2-dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
+version: 2
+jobs:
+  test-node-10:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - restore-cache: *restore-cache
+      - run: npm install
+      - save-cache: *save-cache
+      - run:
+          command: npm test
+
+  test-node-8:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore-cache: *restore-cache
+      - run: npm install
+      - save-cache: *save-cache
+      - run:
+          command: npm test
+
+  test-node-6:
+    docker:
+      - image: circleci/node:6
+    steps:
+      - checkout
+      - restore-cache: *restore-cache
+      - run: npm install
+      - save-cache: *save-cache
+      - run:
+          command: npm test
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - test-node-8
+      - test-node-6
+      - test-node-10
