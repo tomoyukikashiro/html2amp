@@ -5,7 +5,7 @@ html2amp is `simple` converter from HTML into AMP(Accelerated Mobile Pages).
 
 ## Motivation
 
-This library allow you to convert `simple` html into AMP. What does the `simple` means ?
+This library allow you to convert `simple` html into AMP. What does the `simple` mean ?
 
 As you know AMP has many restrictions to make it such as ...
 
@@ -15,12 +15,12 @@ As you know AMP has many restrictions to make it such as ...
 You can see full Specification here.
 [AMP HTML Specification](https://www.ampproject.org/docs/fundamentals/spec)
 
-It could be hard to convert any html into AMP but if it's `simple` one it's possible to convert automatically.
+It could be hard to convert any html into AMP perfectly but if it's `simple` one it's possible to convert automatically.
 
 For example...
 
 - Tech blog
-- Corporate new blog
+- Corporate news blog
 
 So this library's target is `To convert simple html into AMP`.
 
@@ -41,6 +41,15 @@ const amp = html2amp(html, options)
 console.log(amp) // amp string
 ```
 
+## Options
+
+- cwd : image / styles base path
+  - type: `string`
+  - default: `''`
+- gaConfigPath
+  - type: `string`
+  - required: false
+
 ## Functions
 
 This library ...
@@ -50,6 +59,7 @@ This library ...
 - add `viewport` meta if it does not exist
   - viewport should be `<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">`
 - replace all external css files with one `<style amp-custom>/* css is here */<style/>`
+    - also removed `!imporant` keyword
 - remove all scripts
 - add [AMP CSS boilerplate](https://www.ampproject.org/docs/fundamentals/converting/resolving-errors#include-amp-css-boilerplate)
 - replace `<img />` with `<amp-img />`
@@ -57,9 +67,9 @@ This library ...
   - also add `layout="responsive"` attribute
 - replace `<iframe />` with `<amp-iframe />`
 - add `<amp-analytics />`
+  - only support google analytics
   - also removed regular google analytics tag
   - it's optional 
-- removed `!imporant` keyword in css
 
 ## Preparation
 
