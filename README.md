@@ -1,5 +1,5 @@
 
-# html2amp
+# html2amp [![CircleCI](https://circleci.com/gh/tomoyukikashiro/html2amp/tree/master.svg?style=svg)](https://circleci.com/gh/tomoyukikashiro/html2amp/tree/master)
 
 html2amp is `simple` converter from HTML into AMP(Accelerated Mobile Pages).
 
