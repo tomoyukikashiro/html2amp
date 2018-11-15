@@ -6,7 +6,6 @@ html2amp is `simple` converter from HTML into AMP(Accelerated Mobile Pages).
 ## Motivation
 
 This library allow you to convert `simple` html into AMP. What does the `simple` mean ?
-
 As you know AMP has many restrictions to make it such as ...
 
 - Some html tags are needed to be replaced by special one (`<amp-img />`, `<amp-iframe />`)
@@ -14,7 +13,6 @@ As you know AMP has many restrictions to make it such as ...
 
 You can see full Specification here.
 [AMP HTML Specification](https://www.ampproject.org/docs/fundamentals/spec)
-
 It could be hard to convert any html into AMP perfectly but if it's `simple` one it's possible to convert automatically.
 
 For example...
@@ -46,7 +44,7 @@ console.log(amp) // amp string
 - cwd : image / styles base path
   - type: `string`
   - default: `''`
-- gaConfigPath
+- gaConfigPath: `amp-analytics` config json path for [google analytics](https://www.ampproject.org/docs/analytics/analytics-vendors)
   - type: `string`
   - required: false
 
