@@ -1,0 +1,39 @@
+{
+  "name": "html2amp",
+  "version": "0.1.0",
+  "description": "Simple converter from HTML into AMP(Accelerated Mobile Pages)",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js test lib",
+    "test": "npm run lint && NODE_ENV=test jest --testEnvironment=node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomoyukikashiro/html2amp.git"
+  },
+  "keywords": [
+    "html",
+    "amp"
+  ],
+  "author": "Tomoyuki Kashiro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomoyukikashiro/html2amp/issues"
+  },
+  "homepage": "https://github.com/tomoyukikashiro/html2amp#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "clean-css": "^4.2.1",
+    "image-size": "^0.6.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.6.0"
+  }
+}
