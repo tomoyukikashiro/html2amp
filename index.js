@@ -9,11 +9,11 @@ const ga = require('./lib/googleanalytics')
 const iframe = require('./lib/iframe')
 const boilerplate = require('./lib/boilerplate')
 
-const html2amp = (html, options = {}) => {
+const html2amp = async (html, options = {}) => {
   let $ = cheerio.load(html)
   $ = amp($, options)
-  $ = css($, options)
-  $ = img($, options)
+  $ = await css($, options)
+  $ = await img($, options)
   $ = script($, options)
   $ = charset($, options)
   $ = viewport($, options)

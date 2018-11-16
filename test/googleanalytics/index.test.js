@@ -4,7 +4,8 @@ const assert = require('../assert.js')
 const ga = require('../../lib/googleanalytics')
 const htmlFactory = require('../html')
 
-const expected = `<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script><amp-analytics type="googleanalytics"><script type="application/json">{
+const script = '<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>'
+const expected = `<amp-analytics type="googleanalytics"><script type="application/json">{
   "vars": {
     "account": "UA-XXXXX-Y"
   },
@@ -23,7 +24,7 @@ describe('google analytics', function () {
     it('should add amp-analytics', function () {
       const config = { gaConfigPath: 'googleanalytics.json', cwd: path.join(process.cwd(), 'test/fixtures/config') }
       const $ = ga(cheerio.load(html), config)
-      assert($, htmlFactory({ head: expected }))
+      assert($, htmlFactory({ head: script, body: expected }))
     })
   })
 })
