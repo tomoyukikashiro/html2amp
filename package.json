@@ -7,6 +7,9 @@
     "lint": "eslint index.js test lib",
     "test": "npm run lint && NODE_ENV=test jest --testEnvironment=node test"
   },
+  "engines": {
+    "node": ">= 8"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tomoyukikashiro/html2amp.git"
