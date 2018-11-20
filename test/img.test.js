@@ -25,6 +25,14 @@ describe('img', function () {
       })
     })
   })
+  describe('There is a protocol relative url', function () {
+    const html = htmlFactory({ body: `<img alt="test" src="//dummyimage.com/100x200/000/fff.jpg" />` })
+    it('should be replaced with a custom img tag', async function () {
+      const $ = await img(cheerio.load(html))
+      const expected = htmlFactory({ body: '<amp-img src="https://dummyimage.com/100x200/000/fff.jpg" alt="test" width="100" height="200" layout="responsive"></amp-img>' })
+      assert($, expected)
+    })
+  })
   describe('There is data uri', function () {
     const html = htmlFactory({ body: `<img alt="test" src="${uri}" />` })
     it('should be replaced with custom img tag', async function () {
