@@ -68,6 +68,8 @@ This library ...
   - only support google analytics
   - also removed regular google analytics tag
   - it's optional 
+- add [<amp-install-serviceworker>](https://www.ampproject.org/docs/reference/components/amp-install-serviceworker)
+  - it's optional 
 
 ## Preparation
 
@@ -75,4 +77,4 @@ To make your html valid AMP your html also should ...
 
 - have canonical meta tag to regular HTML
 - not have any problem if all scripts are removed
-- not ahve any problem if all `!imporant` syntax are removed in css
+- not have any problem if all `!imporant` syntax are removed in css
