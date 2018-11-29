@@ -8,6 +8,7 @@ const viewport = require('./lib/meta/viewport')
 const ga = require('./lib/googleanalytics')
 const iframe = require('./lib/iframe')
 const boilerplate = require('./lib/boilerplate')
+const serviceworker = require('./lib/serviceWorker')
 
 const html2amp = async (html, options = {}) => {
   let $ = cheerio.load(html)
@@ -19,6 +20,7 @@ const html2amp = async (html, options = {}) => {
   $ = viewport($, options)
   $ = ga($, options)
   $ = iframe($, options)
+  $ = serviceworker($, options)
   $ = boilerplate($, options)
   return $.html()
 }
