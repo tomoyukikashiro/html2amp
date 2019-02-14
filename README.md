@@ -41,12 +41,11 @@ console.log(amp) // amp string
 
 ## Options
 
-- cwd : image / styles base path
-  - type: `string`
-  - default: `''`
-- gaConfigPath: `amp-analytics` config json path for [google analytics](https://www.ampproject.org/docs/analytics/analytics-vendors)
-  - type: `string`
-  - required: false
+name | default value | note
+------------ | ------------- | ------------- 
+cwd|`.`|image / styles base path
+gaConfigPath| |`amp-analytics` config json path for [google analytics](https://www.ampproject.org/docs/analytics/analytics-vendors)
+
 
 ## Functions
 
