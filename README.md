@@ -68,8 +68,11 @@ This library ...
   - only support google analytics
   - also removed regular google analytics tag
   - it's optional 
-- add [<amp-install-serviceworker>](https://www.ampproject.org/docs/reference/components/amp-install-serviceworker)
+- add [amp-install-serviceworker](https://www.ampproject.org/docs/reference/components/amp-install-serviceworker)
   - it's optional 
+- replace all a tag links which destination is original site with absolute url which starts with http[s]
+  - original url comes from canonical's href attribute
+  - e.g. `<a href="/test">` is replaced with `<a href="https//original-url.com/test">`
 
 ## Preparation
 
