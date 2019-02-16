@@ -45,6 +45,7 @@ name | default value | note
 ------------ | ------------- | ------------- 
 cwd|`.`|image / styles base path
 gaConfigPath| |`amp-analytics` config json path for [google analytics](https://www.ampproject.org/docs/analytics/analytics-vendors)
+serviceWorker| |attributes of [<amp-install-serviceworker />](https://www.ampproject.org/docs/reference/components/amp-install-serviceworker) <br/> e.g. `src`, `data-iframe-src`
 
 
 ## Functions
