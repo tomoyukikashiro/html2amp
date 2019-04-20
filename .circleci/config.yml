@@ -24,9 +24,9 @@ jobs:
       - run:
           command: npm test
 
-  test-node-8:
+  test-node-8.3:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:8.3
     steps:
       - checkout
       - restore-cache: *restore-cache
@@ -39,5 +39,5 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - test-node-8
+      - test-node-8.3
       - test-node-10

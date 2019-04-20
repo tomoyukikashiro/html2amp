@@ -41,7 +41,7 @@ describe('img', function () {
       assert($, expected)
     })
   })
-  describe('There is a relative image pth', function () {
+  describe('There is a relative image path', function () {
     const html = htmlFactory({ body: '<img alt="test" src="./images/test.jpg" />' })
     it('should be replaced with custom img tag', async function () {
       const $ = await img(cheerio.load(html), { cwd: path.join(process.cwd(), 'test/fixtures') })
