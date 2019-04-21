@@ -63,7 +63,7 @@ This library ...
     - also removed `!imporant` keyword
 - remove all scripts
 - add [AMP CSS boilerplate](https://www.ampproject.org/docs/fundamentals/converting/resolving-errors#include-amp-css-boilerplate)
-- replace `<img />` with `<amp-img />`
+- replace `<img />`, `<picture><source /></picture>` with `<amp-img />`
   - also add width height attributes if it do not exist
   - also add `layout="responsive"` attribute
 - replace `<iframe />` with `<amp-iframe />`
