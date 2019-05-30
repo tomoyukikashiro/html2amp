@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/tomoyukikashiro/html2amp#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.2",
     "clean-css": "^4.2.1",
     "data-uri-to-buffer": "^2.0.0",
