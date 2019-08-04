@@ -1,5 +1,5 @@
-.git
-.idea
-.circleci 
+.git/
+.idea/
+.circleci/
 .DS_Store
-test
+test/
