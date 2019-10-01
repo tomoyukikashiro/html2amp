@@ -49,4 +49,12 @@ describe('img', function () {
       assert($, expected)
     })
   })
+  describe('There is a loading attribute', function () {
+    const html = htmlFactory({ body: '<img alt="test" loading="lazy" src="./images/test.jpg" />' })
+    it('should be removed', async () => {
+      const $ = await img(cheerio.load(html), { cwd: path.join(process.cwd(), 'test/fixtures') })
+      const expected = htmlFactory({ body: '<amp-img src="./images/test.jpg" alt="test" width="100" height="200" layout="responsive"></amp-img>' })
+      assert($, expected)
+    })
+  })
 })
