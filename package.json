@@ -1,6 +1,6 @@
 {
   "name": "html2amp",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simple converter from HTML into AMP(Accelerated Mobile Pages)",
   "main": "index.js",
   "scripts": {
