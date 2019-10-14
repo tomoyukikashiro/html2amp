@@ -1,3 +1,4 @@
+
 const cheerio = require('cheerio')
 const amp = require('./lib/amp')
 const css = require('./lib/css')
@@ -11,6 +12,7 @@ const iframe = require('./lib/iframe')
 const boilerplate = require('./lib/boilerplate')
 const serviceworker = require('./lib/serviceWorker')
 const link = require('./lib/link')
+const toolbox = require('./lib/toolbox')
 
 const html2amp = async (html, options = {}) => {
   let $ = cheerio.load(html)
@@ -26,7 +28,8 @@ const html2amp = async (html, options = {}) => {
   $ = link($)
   $ = serviceworker($, options)
   $ = boilerplate($, options)
-  return $.html()
+  html = await toolbox.optimizer($.html(), options)
+  return html
 }
 
 module.exports = html2amp
