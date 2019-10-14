@@ -49,7 +49,7 @@ name | default value | note
 cwd|`.`|image / styles base path
 gaConfigPath| |`amp-analytics` config json path for [google analytics](https://www.ampproject.org/docs/analytics/analytics-vendors)
 serviceWorker| |attributes of [amp-install-serviceworker](https://www.ampproject.org/docs/reference/components/amp-install-serviceworker) <br/> e.g. `src`, `data-iframe-src`
-
+optimize|false| if true, this module will optimize the html by using [@ampproject/toolbox-optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer)
 
 ## Functions
 
@@ -76,6 +76,7 @@ This library ...
 - replace all a tag links which destination is original site with absolute url which starts with http[s]
   - original url comes from canonical's href attribute
   - e.g. `<a href="/test">` is replaced with `<a href="https//original-url.com/test">`
+- optimize html by using [@ampproject/toolbox-optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer)
 
 ## Preparation
 
