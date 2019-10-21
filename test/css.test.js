@@ -27,10 +27,19 @@ describe('css', function () {
     })
   })
   describe('There is relative path stylesheet', function () {
-    const html = htmlFactory({ head: '<link rel="stylesheet" href="./styles/test.css">' })
-    it('should be appended in custom style tag', async function () {
-      const $ = await css(cheerio.load(html), { cwd: path.join(process.cwd(), 'test/fixtures') })
-      expect($('style[amp-custom]').eq(0).html()).toEqual('.test{color:red}')
+    describe('which does not contain any query parameters', () => {
+      const html = htmlFactory({ head: '<link rel="stylesheet" href="./styles/test.css">' })
+      it('should be appended in custom style tag', async function () {
+        const $ = await css(cheerio.load(html), { cwd: path.join(process.cwd(), 'test/fixtures') })
+        expect($('style[amp-custom]').eq(0).html()).toEqual('.test{color:red}')
+      })
+    })
+    describe('which contain query parameter', () => {
+      const html = htmlFactory({ head: '<link rel="stylesheet" href="./styles/test.css?test=1">' })
+      it('should be appended in custom style tag', async function () {
+        const $ = await css(cheerio.load(html), { cwd: path.join(process.cwd(), 'test/fixtures') })
+        expect($('style[amp-custom]').eq(0).html()).toEqual('.test{color:red}')
+      })
     })
   })
   describe('There is inline style', function () {
