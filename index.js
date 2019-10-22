@@ -13,9 +13,10 @@ const boilerplate = require('./lib/boilerplate')
 const serviceworker = require('./lib/serviceWorker')
 const link = require('./lib/link')
 const toolbox = require('./lib/toolbox')
+const html = require('./lib/html')
 
-const html2amp = async (html, options = {}) => {
-  let $ = cheerio.load(html)
+const html2amp = async (htmlString, options = {}) => {
+  let $ = cheerio.load(htmlString)
   $ = amp($, options)
   $ = await css($, options)
   $ = await picture($, options) // should be done before img
@@ -28,8 +29,9 @@ const html2amp = async (html, options = {}) => {
   $ = link($)
   $ = serviceworker($, options)
   $ = boilerplate($, options)
-  html = await toolbox.optimizer($.html(), options)
-  return html
+  htmlString = html($, options)
+  htmlString = await toolbox.optimizer(htmlString, options)
+  return htmlString
 }
 
 module.exports = html2amp
