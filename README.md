@@ -50,6 +50,53 @@ cwd|`.`|image / styles base path
 gaConfigPath| |`amp-analytics` config json path for [google analytics](https://www.ampproject.org/docs/analytics/analytics-vendors)
 serviceWorker| |attributes of [amp-install-serviceworker](https://www.ampproject.org/docs/reference/components/amp-install-serviceworker) <br/> e.g. `src`, `data-iframe-src`
 optimize|false| if true, this module will optimize the html by using [@ampproject/toolbox-optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer)
+cssPlugins | [] | you can add custom converter for css.
+htmlPlugins | [] | you can add custom converter for css.
+
+### CSS Plugin
+
+CSS Plugin allow you to add custom converter for CSS.
+
+```javascript
+/**
+ * elementString :
+ *   e.g. '<style id="test">.test { color: red; }</style>'
+ *   e.g. '<link rel="stylesheet" href="http://example.com/test.css"></style>'
+ * cssText :
+ *   e.g. '.test{ color: red; }'
+ * options : module options
+ **/
+const plugin = (elementString, cssText, options) => {
+  // you need to return cssText which you modified.
+  return cssText.replace('red', '#ccc')
+}
+
+// options
+const options = {
+  cssPlugins: [ plugin ]
+}
+```
+
+### HTMl Plugin
+
+HTML Plugin allow you to add custom converter for HTML.
+
+```javascript
+/**
+ * htmlString :
+ *   e.g. '<html><body><h1>Normal HTML</h1></body></html>'
+ * options : module options
+ **/
+const plugin = (htmlString, options) => {
+  // you need to return htmlString which you modified.
+  return htmlString.replace('Normal', 'AMP')
+}
+
+// options
+const options = {
+  htmlPlugins: [ plugin ]
+}
+```
 
 ## Functions
 

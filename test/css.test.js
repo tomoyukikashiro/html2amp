@@ -43,11 +43,25 @@ describe('css', function () {
     })
   })
   describe('There is inline style', function () {
-    const html = htmlFactory({ head: '<style>.test{color: red !important;}</style>' })
+    const html = htmlFactory({ head: '<style>.test1{color: #000 !important;}</style><style>.test2{color: #ccc !important;}</style>' })
     it('should be appended in custom style tag', async function () {
       const $ = await css(cheerio.load(html))
       assertCss($)
-      expect($('style[amp-custom]').eq(0).html()).toEqual('.test{color:red}')
+      expect($('style[amp-custom]').eq(0).html()).toEqual('.test1{color:#000}.test2{color:#ccc}')
+    })
+  })
+  describe('There is plugin', () => {
+    const html = htmlFactory({ head: '<link rel="stylesheet" href="./styles/test.css">' })
+    it('should be appended in custom style tag', async function () {
+      const plugin = (elementString, cssText) => {
+        return cssText.replace('red', '#ccc')
+      }
+      const options = {
+        cwd: path.join(process.cwd(), 'test/fixtures'),
+        cssPlugins: [plugin]
+      }
+      const $ = await css(cheerio.load(html), options)
+      expect($('style[amp-custom]').eq(0).html()).toEqual('.test{color:#ccc}')
     })
   })
 })
