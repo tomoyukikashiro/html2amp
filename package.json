@@ -33,7 +33,7 @@
     "probe-image-size": "^5.0.0"
   },
   "devDependencies": {
-    "amphtml-validator": "1.0.28",
+    "amphtml-validator": "1.0.29",
     "eslint": "6.6.0",
     "eslint-config-standard": "14.1.0",
     "eslint-plugin-import": "2.18.2",
