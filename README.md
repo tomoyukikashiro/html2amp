@@ -123,6 +123,7 @@ This library ...
 - replace all a tag links which destination is original site with absolute url which starts with http[s]
   - original url comes from canonical's href attribute
   - e.g. `<a href="/test">` is replaced with `<a href="https//original-url.com/test">`
+  - NOTE: If the canonical url in your html is not absolute url this function would be passed
 - optimize html by using [@ampproject/toolbox-optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer)
 
 ## Preparation
