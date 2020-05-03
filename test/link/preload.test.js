@@ -1,7 +1,7 @@
 const cheerio = require('cheerio')
-const assert = require('../../test/assert')
+const assert = require('../assert')
 const canonical = require('../../lib/link/preload')
-const htmlFactory = require('../../test/html')
+const htmlFactory = require('../html')
 
 describe('preload', function () {
   describe('If there is link tag for preloading script', function () {

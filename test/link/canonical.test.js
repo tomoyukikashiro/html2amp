@@ -1,7 +1,7 @@
 const cheerio = require('cheerio')
-const assert = require('../../test/assert')
+const assert = require('../assert')
 const canonical = require('../../lib/link/canonical')
-const htmlFactory = require('../../test/html')
+const htmlFactory = require('../html')
 
 describe('canonical', function () {
   const head = '<link rel="canonical" href="https://example.com/test/article/">'
