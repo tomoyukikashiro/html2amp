@@ -11,7 +11,7 @@ const ga = require('./lib/googleanalytics')
 const iframe = require('./lib/iframe')
 const boilerplate = require('./lib/boilerplate')
 const serviceworker = require('./lib/serviceWorker')
-const link = require('./lib/link')
+const link = require('./lib/link/canonical')
 const toolbox = require('./lib/toolbox')
 const html = require('./lib/html')
 
