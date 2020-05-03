@@ -124,6 +124,7 @@ This library ...
   - original url comes from canonical's href attribute
   - e.g. `<a href="/test">` is replaced with `<a href="https//original-url.com/test">`
   - NOTE: If the canonical url in your html is not absolute url this function would be passed
+- remove all `<link ref="preload" type="script">`, `<link ref="preload" type="fetch">`
 - optimize html by using [@ampproject/toolbox-optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer)
 
 ## Preparation
@@ -131,5 +132,5 @@ This library ...
 To make your html valid AMP your html also should ...
 
 - have canonical meta tag to regular HTML
-- not have any problem if all scripts are removed
-- not have any problem if all `!imporant` syntax are removed in css
+- Don't have any problem if all scripts are removed
+- Don't have any problem if all `!imporant` syntax are removed in css

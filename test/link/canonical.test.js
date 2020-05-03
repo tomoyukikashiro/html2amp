@@ -1,15 +1,15 @@
 const cheerio = require('cheerio')
-const assert = require('./assert')
-const link = require('../lib/link')
-const htmlFactory = require('./html')
+const assert = require('../assert')
+const canonical = require('../../lib/link/canonical')
+const htmlFactory = require('../html')
 
-describe('link', function () {
+describe('canonical', function () {
   const head = '<link rel="canonical" href="https://example.com/test/article/">'
 
   describe('if there is a link which href starts with /', function () {
     const html = htmlFactory({ head, body: '<a href="/test"></a>' })
     it('should be replaced with origin in canonical', function () {
-      const $ = link(cheerio.load(html))
+      const $ = canonical(cheerio.load(html))
       assert($, htmlFactory({ head, body: '<a href="https://example.com/test"></a>' }))
     })
   })
@@ -17,7 +17,7 @@ describe('link', function () {
   describe('if there is a link which href starts with ./test', function () {
     const html = htmlFactory({ head, body: '<a href="./bar"></a>' })
     it('should be replaced with origin in canonical', function () {
-      const $ = link(cheerio.load(html))
+      const $ = canonical(cheerio.load(html))
       assert($, htmlFactory({ head, body: '<a href="https://example.com/test/article/bar"></a>' }))
     })
   })
@@ -25,7 +25,7 @@ describe('link', function () {
   describe('if there is a link which href starts with ../test', function () {
     const html = htmlFactory({ head, body: '<a href="../test"></a>' })
     it('should be replaced with origin in canonical', function () {
-      const $ = link(cheerio.load(html))
+      const $ = canonical(cheerio.load(html))
       assert($, htmlFactory({ head, body: '<a href="https://example.com/test/test"></a>' }))
     })
   })
@@ -33,7 +33,7 @@ describe('link', function () {
   describe('if there is a link which href starts with `test`', function () {
     const html = htmlFactory({ head, body: '<a href="test"></a>' })
     it('should be replaced with origin in canonical', function () {
-      const $ = link(cheerio.load(html))
+      const $ = canonical(cheerio.load(html))
       assert($, htmlFactory({ head, body: '<a href="https://example.com/test/article/test"></a>' }))
     })
   })
@@ -41,7 +41,7 @@ describe('link', function () {
   describe('if there is a link which href starts with http', function () {
     const html = htmlFactory({ head, body: '<a href="https://example.com"></a>' })
     it('should be replaced with origin in canonical', function () {
-      const $ = link(cheerio.load(html))
+      const $ = canonical(cheerio.load(html))
       assert($, htmlFactory({ head, body: '<a href="https://example.com"></a>' }))
     })
   })
@@ -49,7 +49,7 @@ describe('link', function () {
   describe('if there is a link which href starts with //', function () {
     const html = htmlFactory({ head, body: '<a href="//example.com"></a>' })
     it('should be replaced with origin in canonical', function () {
-      const $ = link(cheerio.load(html))
+      const $ = canonical(cheerio.load(html))
       assert($, htmlFactory({ head, body: '<a href="//example.com"></a>' }))
     })
   })
