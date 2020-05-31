@@ -31,7 +31,7 @@ const html2amp = async (htmlString, options = {}) => {
   $ = preload($)
   $ = serviceworker($, options)
   $ = boilerplate($, options)
-  htmlString = html($, options)
+  htmlString = await html($, options)
   htmlString = await toolbox.optimizer(htmlString, options)
   return htmlString
 }
