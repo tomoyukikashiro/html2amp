@@ -57,9 +57,9 @@ describe('img', function () {
       assert($, expected)
     })
   })
-  describe('unavailable images are ignored', function () {
+  describe('Unavailable images are ignored', function () {
     const html = htmlFactory({ body: '<img alt="test" loading="lazy" src="https://example.com/404.jpg" />' })
-    it('should be removed', async () => {
+    it('amp-img tag should not be rendered', async () => {
       const $ = await img(cheerio.load(html), { cwd: path.join(process.cwd(), 'test/fixtures') })
       const expected = htmlFactory({ body: '' })
       assert($, expected)
