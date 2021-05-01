@@ -57,4 +57,12 @@ describe('img', function () {
       assert($, expected)
     })
   })
+  describe('Unavailable images are ignored', function () {
+    const html = htmlFactory({ body: '<img alt="test" src="https://example.com/404.jpg" />' })
+    it('amp-img tag should not be rendered', async () => {
+      const $ = await img(cheerio.load(html))
+      const expected = htmlFactory({ body: '' })
+      assert($, expected)
+    })
+  })
 })
