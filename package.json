@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "amphtml-validator": "1.0.35",
-    "eslint": "6.8.0",
+    "eslint": "7.31.0",
     "eslint-config-standard": "14.1.1",
     "eslint-plugin-import": "2.23.4",
     "eslint-plugin-node": "11.1.0",
