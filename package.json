@@ -29,7 +29,7 @@
     "axios": "^0.27.0",
     "cheerio": "^1.0.0-rc.2",
     "clean-css": "^5.0.0",
-    "data-uri-to-buffer": "^3.0.0",
+    "data-uri-to-buffer": "^4.0.0",
     "probe-image-size": "^5.0.0"
   },
   "devDependencies": {
